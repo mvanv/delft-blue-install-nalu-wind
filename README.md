@@ -30,7 +30,6 @@ Add the following directories to the PATHs to make sure the systems picks up the
     export LIBRARY_PATH=/apps/arch/2022r2/software/linux-rhel8-skylake_avx512/gcc-8.5.0/intel-mkl-2020.4.304-562z3j76h4zy26bjp5r2mrimud6fshrc/mkl/lib/intel64:$LIBRARY_PATH
     export LD_LIBRARY_PATH=/apps/arch/2022r2/software/linux-rhel8-skylake_avx512/gcc-8.5.0/intel-mkl-2020.4.304-562z3j76h4zy26bjp5r2mrimud6fshrc/mkl/lib/intel64:$LD_LIBRARY_PATH
 
-
 Building the dependencies
 =========================
 
@@ -40,6 +39,20 @@ YAML-cpp
 --------
 
 Build according to regular instructions
+
+OpenFAST
+--------
+
+Clone using the regular instructions and configure with the following command to enable C++ API:
+
+    cmake \
+    -DBUILD_OPENFAST_CPP_API:BOOL=ON \
+    -DBUILD_SHARED_LIBS:BOOL=ON \
+    ..
+
+Then
+ 
+    make -j48 && make install
 
 Trilinos
 --------
